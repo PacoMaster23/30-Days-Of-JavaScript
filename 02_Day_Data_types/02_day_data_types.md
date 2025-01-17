@@ -410,7 +410,8 @@ let job = 'teacher'
 let age = 250
 let fullName = firstName + ' ' + lastName
 
-let personInfoTwo = `I am ${fullName}. I am ${age}. I live in ${country}.` //ES6 - String interpolation method
+
+let personInfoTwo = `I am ${fullName}. I am ${age}. I live in ${country}.`//ES6 - String interpolation method
 let personInfoThree = `I am ${fullName}. I live in ${city}, ${country}. I am a ${job}. I teach ${language}.`
 console.log(personInfoTwo)
 console.log(personInfoThree)
@@ -903,31 +904,75 @@ console.log(numInt) // 9
 
 ### Exercise: Level 1
 
-1. Declare a variable named challenge and assign it to an initial value **'30 Days Of JavaScript'**.
-2. Print the string on the browser console using __console.log()__
-3. Print the __length__ of the string on the browser console using _console.log()_
+1. Declare a variable named challenge and assign it to an initial value **'30 Days Of JavaScript'**.  
+ let nameChallenge = '30 Days Of JavaScript'
+2. Print the string on the browser console using __console.log(nameChallenge)__
+console.log(nameChallenge)
+3. Print the __length__ of the string on the browser console using _console.log(namechallenge.length)_
+console.log(namechallenge.length)
 4. Change all the string characters to capital letters using __toUpperCase()__ method
+console.log(string.toUpperCase())
+
 5. Change all the string characters to lowercase letters using __toLowerCase()__ method
+console.log(string.tolowerCase())
+
 6. Cut (slice) out the first word of the string using __substr()__ or __substring()__ method
+console.log(string.substring (0,4))
+Pedr
+console.log(string.substring (4))
+o pica papas
 7. Slice out the phrase *Days Of JavaScript* from *30 Days Of JavaScript*.
+console.log(string.substring(3))
+
 8. Check if the string contains a word __Script__ using __includes()__ method
+console.log(string.includes('Script')) TRUE
 9. Split the __string__ into an __array__ using __split()__ method
+console.log (string.split(""))
+
 10. Split the string 30 Days Of JavaScript at the space using __split()__ method
+  console.log (string.split(" "))
+
 11. 'Facebook, Google, Microsoft, Apple, IBM, Oracle, Amazon' __split__ the string at the comma and change it to an array.
+console.log(string.split (" , "))
+['Facebook, Google, Microsoft, Apple, IBM, Oracle, Amazon']
 12. Change 30 Days Of JavaScript to 30 Days Of Python using __replace()__ method.
+console.log(string.replace('JavaScript','Python'))
+ 30 Days Of Python
 13. What is character at index 15 in '30 Days Of JavaScript' string? Use __charAt()__ method.
+console.log(string.charAt(15))
+"S"
 14. What is the character code of J in '30 Days Of JavaScript' string using __charCodeAt()__
+console.log(string.charCodeAt('J'))
+ '51'
 15. Use __indexOf__ to determine the position of the first occurrence of __a__ in 30 Days Of JavaScript
+console.log(string.indexOf('a'))
+'4'
 16. Use __lastIndexOf__ to determine the position of the last occurrence of __a__ in 30 Days Of JavaScript.
+30 Days Of JavaScript 
+console.log(string.indexOf('a'))
+'14'
 17. Use __indexOf__ to find the position of the first occurrence of the word __because__ in the following sentence:__'You cannot end a sentence with because because because is a conjunction'__
 18. Use __lastIndexOf__ to find the position of the last occurrence of the word __because__ in the following sentence:__'You cannot end a sentence with because because because is a conjunction'__
+console.log(oracion.indexOf('because'))
+'31'
 19. Use __search__ to find the position of the first occurrence of the word __because__ in the following sentence:__'You cannot end a sentence with because because because is a conjunction'__
+console.log(oracion.search('because'))
+'31'
 20. Use __trim()__ to remove any trailing whitespace at the beginning and the end of a string.E.g ' 30 Days Of JavaScript '.
+console.log(string.trim())
+ '30 Days Of JavaScript'
 21. Use __startsWith()__ method with the string *30 Days Of JavaScript* and make the result true
+console.log(string.startsWith('3'))
+
 22. Use __endsWith()__ method with the string *30 Days Of JavaScript* and make the result true
+console.log(string.startsWith('t'))
+
 23. Use __match()__ method to find all the __a__’s in 30 Days Of JavaScript
 24. Use __concat()__ and merge '30 Days of' and 'JavaScript' to a single string, '30 Days Of JavaScript'
+console.log(string.concat(' JavaScript'))
 25. Use __repeat()__ method to print 30 Days Of JavaScript 2 times
+console.log(string.repeat(2))
+
 
 ### Exercise: Level 2
 
@@ -943,14 +988,35 @@ console.log(numInt) // 9
     "Love is not patronizing and charity isn't about pity, it is about love. Charity and love are the same -- with charity you give love, so don't just give money but reach out your hand instead."
     ```
 
-3. Check if typeof '10' is exactly equal to 10. If not make it exactly equal.
+  3. Check if typeof '10' is exactly equal to 10. If not make it exactly equal.
+ 
+if (typeof numInt === 'number' && numInt === 10) {
+    console.log('num is exactly equal to 10');
+} else {
+    console.log('num is not equal to 10');
+}
+
 4. Check if parseFloat('9.8') is equal to 10 if not make it exactly equal with 10.
+
+let num = parseFloat('9.8'); 
+if (num !== 10) {
+    num = 10; 
+}
 5. Check if 'on' is found in both python and jargon
+let search = str1.includes('on') && str2.includes('on')
+
 6. _I hope this course is not full of jargon_. Check if _jargon_ is in the sentence.
+let containsJargon = sentence.includes('jargon');
 7. Generate a random number between 0 and 100 inclusively.
+  let numeroRandomAla = Math.floor(Math.random()*101)
+
 8. Generate a random number between 50 and 100 inclusively.
+let numeroRandomAla = Math.floor(Math.random()*51 +50)
+
 9. Generate a random number between 0 and 255 inclusively.
+let numeroRandomAla = Math.floor(Math.random()*256)
 10. Access the 'JavaScript' string characters using a random number.
+********************
 11. Use console.log() and escape characters to print the following pattern.
 
     ```js
@@ -960,13 +1026,20 @@ console.log(numInt) // 9
     4 1 4 16 64
     5 1 5 25 125
     ```
+console.log( '1 1 1 1 1\n 2 1 2 4 8\n3 1 3 9 27\n4 1 4 16 64\n5 1 5 25 125\n')
 
 12.  Use __substr__ to slice out the phrase __because because because__ from the following sentence:__'You cannot end a sentence with because because because is a conjunction'__
+console.log(string.substr(30,24))
+
 
 ### Exercises: Level 3
 
 1. 'Love is the best thing in this world. Some found their love and some are still looking for their love.' Count the number of word __love__ in this sentence.
+let matches = sentence.match(/love/gi)
+let count = matches ? matches.length : 0;
 2. Use __match()__ to count the number of all __because__ in the following sentence:__'You cannot end a sentence with because because because is a conjunction'__
+let matches = sentence.match(/because/gi)
+let count = matches ? matches.length : 0;
 3. Clean the following text and find the most frequent word (hint, use replace and regular expressions).
 
     ```js

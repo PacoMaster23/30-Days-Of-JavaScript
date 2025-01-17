@@ -15,3 +15,17 @@ const PI = 3.14 // geometrical constant
 let name = 'Asabeneh', //name of a person
   job = 'teacher',
   live = 'Finland'
+
+
+  let primerNombre = 'Francisco'
+  let segundoNombre = 'Batalla'
+  let pais = 'Mexico'
+  let ciudad = 'EdoMex'
+  let edad = 22
+  let Casado= false
+  
+  const gravedad= 9.81
+  const puntoEbullicion = 100
+  const PII = 3.1416
+
+  
