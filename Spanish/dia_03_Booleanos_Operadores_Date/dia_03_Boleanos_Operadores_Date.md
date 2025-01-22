@@ -500,50 +500,92 @@ console.log(`${date}/${month}/${year} ${hours}:${minutes}`); // 4/1/2020 0:56
 ### Ejercicios: Nivel 1
 
 1. Declare las siguientes variables; firstName, lastName, country, city, age, isMarried, year y asignar un valor, use el operador typeof para verificar diferentes tipos de datos.
+
+console.log('firstName:', typeof firstName);  
+console.log('lastName:', typeof lastName);    s
+console.log('country:', typeof country);     
+console.log('city:', typeof city);           
+console.log('age:', typeof age);             
+console.log('isMarried:', typeof isMarried);
+console.log('year:', typeof year);     
 2. Verifique si typeof '10' es igual a 10
+typeof '10' === 10 //FALSE 
 3. Verifique si parseInt('9.8') es igual a 10
+let value = parseInt('9.8'); 
+console.log(value === 10); 
 4. Verifique cualquier valor booleano true o false.
+console.log(10 > 5);
 
    1. Escriba tres declaraciones de JavaScript que proporcionen un valor verdadero.
+   5 > 2
+   4<10 && 10>5
+   12>3 || 12>21
    2. Escriba tres declaraciones de JavaScript que proporcionen un valor falso.
-
+      12>2
+      10>123
+      12>234
 5. Calcule primero el resultado de la siguiente expresión de comparación sin usar console.log(). Después de decidir el resultado, confirmelo usando console.log()
 
-   1. 4 > 3
-   2. 4 >= 3
-   3. 4 < 3
-   4. 4 <= 3
-   5. 4 == 4
-   6. 4 === 4
-   7. 4 != 4
-   8. 4 !== 4
-   9. 4 != '4'
-   10. 4 == '4'
-   11. 4 === '4'
+   1. 4 > 3 TRUE
+   2. 4 >= 3 TRUE
+   3. 4 < 3 FALSE
+   4. 4 <= 3 FALSE
+   5. 4 == 4 TRUE
+   6. 4 === 4 TRUE
+   7. 4 != 4 FALSE
+   8. 4 !== 4 FALSE
+   9. 4 != '4' FALSE
+   10. 4 == '4' TRUE
+   11. 4 === '4' FALSE
    12. Encuentre la longitud de Python y jargon y haga una declaración de comparación falsa.
+
+let word1 = "Python";
+let word2 = "jargon";
+
+// Longitud de cada palabra
+let length1 = word1.length;
+let length2 = word2.length;
+
+/console.log(`Longitud de "${word1}":', length1);
+console.log('Longitud de "${word2}":', length2);
+
+// Haciendo una declaración de comparación falsa
+console.log(length1 !== length2);
 
 6. Calcule primero el resultado de las siguientes expresiones sin usar console.log(). Después de decidir el resultado, confirmelo usando console.log()
 
-   1. 4 > 3 && 10 < 12
-   2. 4 > 3 && 10 > 12
-   3. 4 > 3 || 10 < 12
-   4. 4 > 3 || 10 > 12
-   5. !(4 > 3)
-   6. !(4 < 3)
-   7. !(false)
-   8. !(4 > 3 && 10 < 12)
-   9. !(4 > 3 && 10 > 12)
-   10. !(4 === '4')
-   11. No hay 'on' tanto en dragon como en python
+   1. 4 > 3 && 10 < 12 TRUE
+   2. 4 > 3 && 10 > 12 FALSE
+   3. 4 > 3 || 10 < 12 TRUE
+   4. 4 > 3 || 10 > 12 TRUE
+   5. !(4 > 3)  FALSE 
+   6. !(4 < 3) TRUE
+   7. !(false) TRUE
+   8. !(4 > 3 && 10 < 12) FALSE
+   9. !(4 > 3 && 10 > 12) TRUE
+   10. !(4 === '4') TRUE
+   11. No hay 'on' tanto en dragon como en python TRUE
 
 7. Utilice el objeto Date para realizar las siguientes actividades
-   1. ¿Qué año es hoy?
+   1. ¿Qué año es hoy? 
+   let ahora = new Date();
+   let now = console.log(ahora.getFullYear());
    2. ¿Qué mes es hoy con un número?
+      let ahora = new Date();
+   let now = console.log(ahora.getMonth());
    3. ¿Qué fecha es hoy?
+      let ahora = new Date();
+let now = console.log(ahora.toDateString());
    4. ¿Qué día es hoy con un número?
+         let ahora = new Date();
+   let now = console.log(ahora.getDay());
    5. ¿Cuál es la hora actual?
+   let now = console.log(ahora.toTimeString());
    6. ¿Cuántos minutos hay actualmente?
+   let now = console.log(ahora.getMinutes());
    7. Averigüe el número de segundos transcurridos desde el 1 de enero de 1970 hasta ahora.
+   let now = console.log(ahora.getTime());
+
 
 ### Ejercicios: Nivel 2
 
@@ -553,6 +595,14 @@ console.log(`${date}/${month}/${year} ${hours}:${minutes}`); // 4/1/2020 0:56
    Ingrese base: 20
    Ingrese altura: 10
    El área del triángulo es: 100
+
+   let base = prompt('ingresa la base:')
+   let altura = pompt('ingresa la altura:')
+
+   base = parseFloat(base)
+   altura = parseFloat(altura)
+   let area = 0.5 * base * altura;
+
    ```
 
 1. Escriba un script que solicite al usuario que ingrese el lado a, el lado b y el lado c del triángulo y calcule el perímetro del triángulo (perímetro = a + b + c)
@@ -562,20 +612,67 @@ console.log(`${date}/${month}/${year} ${hours}:${minutes}`); // 4/1/2020 0:56
    Ingrese lado b: 4
    Ingrese lado c: 3
    El perimetro del triangulo es: 12
+
+   let a = prompt ('dame tu primer lado')
+   let b = prompt ('dame tu segundo lado')
+   let c = prompt ('dame tu tercer ladp')
+
+    a = parseFloat(a)
+    b = parseFloat(b)
+    c = parseFloat(c)
+
+    let perimetro = (a + b + c)
+
    ```
 
 1. Obtenga el largo y el ancho usando prompt y calcule el área del rectángulo (área = largo x ancho y el perímetro del rectángulo (perímetro = 2 x (largo + ancho))
+
+      let a = prompt ('dame tu primer lado')
+      let b = prompt ('dame tu segundo lado')
+        a = parseFloat(a)
+        b = parseFloat(b)
+        let area = (a *b)
+        let perimetro =  2 * (a + b)
+
+        alert ( 'su area es :' + area, )
+        alert (' Su perimetro es:' + perimetro)
+
 1. Obtenga el radio usando prompt y calcule el área de un círculo (área = pi x r x r) y la circunferencia de un círculo (c = 2 x pi x r) donde pi = 3.14.
+   const Pi = 3.1416
+   let radio = prompt('Ingresa su radio')
+   radio = parseFloat(radio)
+   let area = (Pi * radio **2)
+   let circunferencia = (2 * `${Pi}` * `${radio}` )
+   alert ('Su area es ' + area)
+   alert ('Su circunferencia es' + circunferencia)
+
 1. Calcule la pendiente, la intersección X y la intersección Y de y = 2x -2
 1. La pendiente es m = (y<sub>2</sub>-y<sub>1</sub>)/(x<sub>2</sub>-x<sub>1</sub>). Encuentra la pendiente entre el punto (2, 2) y el punto (6,10)
 1. Compare la pendiente de las dos preguntas anteriores.
 1. Calcula el valor de y (y = x<sup>2</sup> + 6x + 9). Trate de usar diferentes valores de x y averigüe en qué valor de x y es 0.
+
+
 1. Escriba un script con prompt que solicite al usuario que ingrese las horas y la tarifa por hora. ¿Calcular el salario de la persona?
 
    ```sh
    Ingrese horas: 40
    Introduce la tarifa por hora: 28
    Su ganancia semanal es 1120
+
+   let ingreso = prompt ('agrege sus horas trabajadas')
+   let tarifa = prompt ('Agrege tarifa')
+
+    ingreso = parseFloat(ingreso)
+    
+    if( (isNaN  ingreso) || (isNaN tarifa) || ingreso >= 0 || tarifa >=0){
+      alert('Dame valores validos que sean numericos')
+    }else{
+      let operacion = (tarifa * operacion)
+      alert (`su tarifa salaria es ${operacion.toFixe(2)}`)
+    }
+    
+   
+
    ```
 
 1. Si la longitud de su nombre es mayor que 7, diga que su nombre es largo; de lo contrario, diga que su nombre es corto.
@@ -584,6 +681,22 @@ console.log(`${date}/${month}/${year} ${hours}:${minutes}`); // 4/1/2020 0:56
    ```js
    let firstName = "Asabeneh";
    let lastName = "Yetayeh";
+ */CODIGO 1 /*
+   if (firstName.length >=7){
+      alert ('tu nombre tiene mas de 7 caracteres')
+   } else if (firstName.length<=6){
+     alert ('tu nombre es corto') 
+      
+   }
+
+   */ CODIGO 2 /*
+      if (firstName.length > lastName.length){
+         alert(`tu primer nombre, ${firstName}, es mas largo que tu apellido, ${lastName}`)
+      }else if ( lastName.length> firstName.length){
+         alert (`tu apellido, ${lastName}, es mas largo que tu primer nombre ${firstName}`)
+      }else{
+         alert(`tu primer nombre, ${firstName}, y tu apellido ${lastName} tienen la misma longitud`)
+      }
    ```
 
    ```sh
@@ -599,6 +712,17 @@ console.log(`${date}/${month}/${year} ${hours}:${minutes}`); // 4/1/2020 0:56
 
    ```sh
    Soy 225 años mayor que tú.
+   if (myAge > yourAge){
+      let valores = Math.abs (myAge - yourAge)
+      alert(`soy ${valores} años que tu `)
+
+   }else if (myAge < yourAge){
+       let valores = Math.abs (myAge - yourAge)
+      alert(`soy ${valores} años mayor que tu`)
+      
+   }else{
+      alert("tenemos la misma edad")
+   }
    ```
 
 1. Usando prompt, obtenga el año en que nació el usuario y, si el usuario tiene 18 años o más, permita que el usuario conduzca, si no dígale que espere una cierta cantidad de años.
@@ -610,6 +734,27 @@ console.log(`${date}/${month}/${year} ${hours}:${minutes}`); // 4/1/2020 0:56
 
    Introduzca el año de nacimiento: 2005
    Tienes 15 años. Podrás conducir después de 3 años.
+
+
+   let peticionAño= prompt ('introduce tu año de nacimiento')
+   let añoDefault = 2025
+         let  edad = (añoDefault - peticionAño)
+
+   peticionAño = parseFloat (peticionAño)
+
+   if (isNaN(peticionAño) ||  peticionAño <=0 || peticionAño > añoDefault ){
+   alert("Por favor, introduce un año de nacimiento válido.");
+   }  else {
+  // Calcular la edad
+  let edad = añoDefault - peticionAño;
+
+   if (edad >=18){
+     alert(`Tienes ${edad} años. Tienes la edad suficiente para conducir.`);
+     }else{
+     let añosFaltantes = 18 - edad;
+    alert( `Tienes ${edad} años. Podrás conducir en ${añosFaltantes} años.`) 
+   }
+
    ```
 
 1. Escriba un script que solicite por prompt al usuario que ingrese el número de años. Calcular el número de segundos que puede vivir una persona. Supongamos que alguien vive solo cien años
@@ -617,9 +762,27 @@ console.log(`${date}/${month}/${year} ${hours}:${minutes}`); // 4/1/2020 0:56
    ```sh
    Ingrese el número de años de vida: 100
     Viviste 3153600000 segundos.
+
+    let IngresaEdad = prompt ('Ingresa tu edad')
+    IngresaEdad = parseFloat (IngresaEdad)
+
+   const NumSegundosMin = 60
+   const NumMinenHora = 60
+   const NumHoras = 24
+   const NumeroDiasAño = 365
+
+   const operacion = NumSegundosMin * NumMinenHora * NumHoras * NumeroDiasAño
+   
+   let res = operacion * IngreseEdad
+   alert (`Viviste ${res} segundos`)
+
+
    ```
 
 1. Cree un formato de hora legible por humanos usando el objeto Date.
+
+
+
    1. YYYY-MM-DD HH:mm
    2. DD-MM-YYYY HH:mm
    3. DD/MM/YYYY HH:mm
@@ -628,5 +791,16 @@ console.log(`${date}/${month}/${year} ${hours}:${minutes}`); // 4/1/2020 0:56
 
 1. Cree un formato de hora legible por humanos usando el objeto Date. La hora y el minuto deben ser siempre dos dígitos (7 horas deben ser 07 y 5 minutos deben ser 05)
    1. YYY-MM-DD HH:mm eg. 20120-01-02 07:05
+
+   let now = new Date ();
+   let year = now.getFullYear();
+   let month = String(now.getMonth()+1).padStart(2,'0')
+   let day = String(now.getDay()).padStart(2,'0')
+   let hours = String(now.getHours()).padStart(2,'0')
+   let minuts = String(now.getMinutes()).padStart(2,'0')
+
+   const formato = `${year}-${month}-${day} ${hours}:${minuts}`
+   console.log (formato)
+
 
 [<< Día 2](../dia_02_tipos_de_datos.md) | [Día 4 >>](../dia_04_Condicionales/dia_04_Condicionales.md)
