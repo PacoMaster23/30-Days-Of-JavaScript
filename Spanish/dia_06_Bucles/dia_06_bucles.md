@@ -292,6 +292,10 @@ const mernStack = ["MongoDB", "Express", "React", "Node"];
        #####
        ######
        #######
+        for (let i = 0; i <= 10; i++) {
+  console.log(char.set'#'i);
+    }
+
    ```
 
 5. Usa un bucle para imprimir el siguiente patrón:
