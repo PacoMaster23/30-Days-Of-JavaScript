@@ -334,6 +334,10 @@ do{
        #####
        ######
        #######
+        for (let i = 0; i <= 10; i++) {
+  console.log(char.set'#'i);
+    }
+
    ```
    for (let i = 1; i<=gato; i++){
   console.log("#".repeat(i));

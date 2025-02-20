@@ -683,6 +683,18 @@ function convertCelsiusToFahrenheit (celcius){
 ### Ejercicios: Nivel 2
 
 1. La ecuación lineal se calcula de la siguiente manera: _ax + by + c = 0_. Escribe una función que calcule el valor de una ecuación lineal, _solveLinEquation_.
+
+  function solveLinEquationForX(a, b, c, y) {
+  if (a === 0) {
+    return "La ecuación no tiene solución para x (a no puede ser 0)";
+  }
+  let x = (-b * y - c) / a;
+  return `Para y = ${y}, el valor de x es: ${x}`;
+}
+
+console.log(solveLinEquationForX(2, 3, -6, 5)); // Prueba con y = 5
+
+
 1. La ecuación cuadrática se calcula de la siguiente manera: _ax2 + bx + c = 0_. Escribe una función que calcule el valor o los valores de una ecuación cuadrática, _solveQuadEquation_.
 
    ```js
@@ -694,7 +706,33 @@ function convertCelsiusToFahrenheit (celcius){
    console.log(solveQuadratic(1, -1, 0)); //{1, 0}
    ```
 
+   function solveQuadEquation (a, b, c){
+    let array = [];
+      let D = b * b  - 4 * a * c
+
+     if (D > 0 ){
+      let generalx = Math.floor(((-b + Math.sqrt(D)) / (2 * a))); 
+      let generaly = Math.floor(((-b - Math.sqrt(D)) / (2 * a)));
+                array.push(generalx, generaly)
+
+     }else if (D === 0){
+              let generalx = Math.floor(((-b + Math.sqrt(D)) / (2 * a))); 
+                         array.push(generalx)
+
+     }else{
+      return "no hay soluciones reales (pero sí soluciones complejas)"
+     }
+    return new Set(array); 
+   }
+   console.log(solveQuadEquation(2,9,3))
+
 1. Declare una función llamada _printArray_. Toma un array como parámetro e imprime cada valor del array.
+function printArray (arr) {
+  for (let i = 0; i < arr.length; i++){
+    console.log(arr[i]);
+  }
+}
+printArray([1,2,3,4])
 1. Declare una función llamada _showDateTime_ que muestre la hora en este formato: 01/08/2020 04:08 usando el objeto Date.
 
    ```sh
@@ -702,11 +740,30 @@ function convertCelsiusToFahrenheit (celcius){
    08/01/2020 04:08
    ```
 
+  function showDateTime (){
+    let now = new Date();
+    let day = now.getDate().toString().padStart(2, '0');
+    let month = (now.getMonth() + 1 ).toString().padStart(2,'0');
+    let year = now.getFullYear();
+    let hours = now.getHours().toString().padStart(2, '0'); 
+    let minutes = now.getMinutes().toString().padStart(2,'0');
+    
+    return `${day}/${month}/${year} ${hours}:${minutes}`
+
+  }
+
 1. Declare una función llamada _swapValues_. Esta función intercambia el valor de x a y.
 
    ```js
    swapValues(3, 4); // x => 4, y=>3
    swapValues(4, 5); // x = 5, y = 4
+
+   function swapValues (x, y ) {
+    return [y,x]
+   }
+   let [newX, newY] = swapValues(5,10)
+   console.log(newX, newY)
+
    ```
 
 1. Declare una función llamada _reverseArray_. Toma un array como parámetro y retorna el array invertido (no use el método reverse()).
@@ -716,14 +773,101 @@ function convertCelsiusToFahrenheit (celcius){
    //[5, 4, 3, 2, 1]
    console.log(reverseArray(["A", "B", "C"]));
    //['C', 'B', 'A']
+
+   function reverseArray (arr){
+    let arrVacio = [];
+
+    for (let i= arr.length - 1; i >= 0 ; i--){
+        arrVacio.push(arr[i])
+    }
+  return arrVacio;
+      }
+   
    ```
 
 1. Declare una función llamada _capitalizeArray_. Toma un array como parámetro y retorna el array - capitalizedarray.
+
+  function capitalizeArray (arr){
+    let capitalizedarray = [];
+    for (let i = 0; i < arr.length; i++){
+
+      if(typeof arr[i] === "string"){
+          let capitalized = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+      capitalizedarray.push(capitalized);
+      }else{
+              capitalizedarray.push(arr[i]);
+
+      }
+      }
+    return capitalizedarray;
+  }
+  console.log(capitalizeArray(["hOLA",34,124,12]))
+
 1. Declare una función llamada _addItem_. Toma un elemento de paŕametro y retorna un array después de agregar el un elemento.
+    function addItem (param1){
+      let array = [1,2,3,4,5,6];
+
+        array.push(param1)
+      return array;
+    }
+    console.log(addItem (2));
 1. Declare una función llamada _removeItem_. Toma como parámetro un index y retorna un array después de eleminar el elemento con ese index.
+  function removeItem (index){
+  let array = [1,23,4,5,2]
+
+  if(index < 0 || index > arra.length){
+    return "Ese tamaño no es valido"
+  }else{
+  array.splice(index)
+  }
+  return array;
+  }
 1. Declare una función llamada _sumOfNumbers_. Toma un número como parámetro y suma todos los números en ese rango.
+
+function sumOfNumbers (numero){
+    let suma = 0;
+  
+    for(let i = 1;  i <= numero; i++){
+      suma += i;
+    }
+    return suma;
+}
+console.log(sumOfNumbers(12))
+
 1. Declare una función llamada _sumOfOdds_. Toma un parámetro numérico y suma todos los números impares en ese rango.
+
+  function sumOfodds (numero){
+    let suma = 0;
+    if (!Number.isInteger(numero) || numero <= 0) {
+      return "Ese no es un valor numerico"
+    }
+
+    for (let i = 1; i<= numero; i++){
+      if(i % 2 !== 0){
+        suma += i;
+      }
+
+    }
+    return suma;
+  }
+  console.log(sumOfodds(12))
+
 1. Declare una función llamada _sumOfEven_. Toma un parámetro numérico y suma todos los números pares en ese rango.
+ function sumOfEven (numero){
+    let suma = 0;
+    if (!Number.isInteger(numero) || numero <= 0) {
+      return "Ese no es un valor numerico"
+    }
+
+    for (let i = 1; i<= numero; i++){
+      if(i % 2 === 0){
+        suma += i;
+      }
+
+    }
+    return suma;
+  }
+  console.log(sumOfEven(12))
 1. Declare una función llamada _evensAndOdds_ . Toma un entero positivo como parámetro y cuenta el número de pares e impares.
 
    ```sh
@@ -731,6 +875,29 @@ function convertCelsiusToFahrenheit (celcius){
    El número de impares son 50.
    El número de pares es 51.
    ```
+ function evensAndOdds (numero){
+    let impar = 0;
+    let par = 0;
+
+    //VALIDACION DE NUMERO ENTERO O POSITIVO
+    if(!Number.isInteger(numero) || numero <= 0){
+      return "ESE NO ES UN NUMERO VALIDO"
+    }
+
+    //CICLO PARA CONTAR PARES E IMPARES
+    for(let i = 1; i <= numero; i++){
+      if(i % 2 !== 0){
+        impar++;
+      }else{
+        par++;
+      }
+    }
+    // Devuelve el mensaje con las cantidades correctas
+    return `El número de impares son ${impar}. El número de pares es ${par}.`;
+}
+   
+console.log(evensAndOdds(100));
+
 
 1. Escriba una función que tome cualquier número de argumentos y retorne la suma de los argumentos
 
@@ -739,7 +906,21 @@ function convertCelsiusToFahrenheit (celcius){
    sum(1, 2, 3, 4); // -> 10
    ```
 
+  function suma (...param){
+      let suma = 0;
+    for(let i =0; i < param.length; i++){
+        suma += param[i]
+    }
+    return suma;
+  }
+  suma (1,2,33)
+
 1. Escriba una función _randomUserIp_ que genere una ip de usuario aleatoria.
+
+function randomUserIp (){
+  
+}
+
 1. Escriba una función _randomMacAddress_ que genere una dirección mac aleatoria.
 1. Declare una función llamada _randomHexaNumberGenerator_. Cuando se llama a esta función, genera un número hexadecimal aleatorio. La función retorna el número hexadecimal.
 
