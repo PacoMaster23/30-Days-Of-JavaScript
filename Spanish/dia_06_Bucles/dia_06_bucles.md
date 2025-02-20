@@ -252,7 +252,7 @@ for (let i = 0; i <= 5; i++) {
 ### Ejercicios: Nivel 1
 
 ```js
-const countries = [
+const countriess = [
   "Albania",
   "Bolivia",
   "Canada",
@@ -280,8 +280,50 @@ const mernStack = ["MongoDB", "Express", "React", "Node"];
 ```
 
 1. Itera de 0 a 10 usando el bucle for, haga lo mismo usando los bucles while y do while
+    //FOR
+    for (let i = 0; i <= countriess.length; i ++){
+      console.log(countriess[i])
+    }
+    //WHILE
+
+    let i =0;
+    while(i<=webTechs.length){
+      console.log(webTeach[i])
+      i++
+    }
+
+  //DO WHILE
+      let i =0;
+do{
+        console.log(mernStack[i])
+      i++
+}while(i<=mernStack.length)
+
 2. Itera 10 to 0 usando el bucle for, haga lo mismo usando los bucles while y do while
+    for (let i = 10; i >= 10; i--){
+      console.log(i)
+    }
+
+      //WHILE
+      let i = 10;
+      while(i>=0){
+        console.log(i);
+        i--
+      }
+
+      //DO WHILE 
+       
+       let i = 10;
+       do{
+        console.log(i)
+        i --
+       }while(i>=0)
+
 3. Itera de 0 a n usando el bucle for
+  let n = 20;
+  for (let i = n; i >= 0; i-- ){
+    console.log(i)
+  }
 4. Escribe un bucle que haga el siguiente patrón usando console.log():
 
    ```js
@@ -293,6 +335,9 @@ const mernStack = ["MongoDB", "Express", "React", "Node"];
        ######
        #######
    ```
+   for (let i = 1; i<=gato; i++){
+  console.log("#".repeat(i));
+   }
 
 5. Usa un bucle para imprimir el siguiente patrón:
 
@@ -308,6 +353,10 @@ const mernStack = ["MongoDB", "Express", "React", "Node"];
    8 x 8 = 64
    9 x 9 = 81
    10 x 10 = 100
+
+   for(let i=0; i<=10; i++){
+    console.log(`${i} * ${i} = ${i * i}`)
+   }
    ```
 
 6. Usando un bucle imprime el siguiente patrón:
@@ -325,35 +374,142 @@ const mernStack = ["MongoDB", "Express", "React", "Node"];
     8    64    512
     9    81    729
     10   100   1000
+
+  console.log('i    i^2    i^3');
+  for (let i = 0; i <= 10; i++) {
+  console.log(`${i}    ${i * i}    ${i * i * i}`);
+  }
    ```
 
 7. Usa el bucle for para iterar de 0 a 100 e imprima solo números pares
-8. Usa el bucle for para iterar de 0 a 100 e imprima solo números impares
-9. Usa el bucle for para iterar de 0 a 100 e imprima los solo números primos
-10. Usa el bucle for para iterar de 0 a 100 e imprima la suma de todos los números.
+    arrayPar = [];
+    arrayImpar = [];
 
+    for (let i = 0; i<=100; i++ ){
+    if (i % 2 === 0 ){
+      arrayPar.push(i);
+    }else{
+      arrayImpar.push(i);
+    }
+    }
+  console.log('Pares:', arrayPar)
+  console.log('Impares:', arrayImpar)
+
+8. Usa el bucle for para iterar de 0 a 100 e imprima solo números impares
+  arrayImpar = [];
+
+  for (let i = 0; i <= 100; i++) {
+  if (i % 2 !== 0) {
+    arrayImpar.push(i);
+  }
+  }
+
+console.log('Impares:', arrayImpar);
+
+9. Usa el bucle for para iterar de 0 a 100 e imprima los solo números primos
+  function esPrimo(n) {
+  if (n <= 1) return false; // Los números menores o iguales a 1 no son primos.
+  for (let i = 2; i <= Math.sqrt(n); i++) {
+    if (n % i === 0) {
+      return false; // Encontramos un divisor, no es primo.
+    }
+  }
+  return true; // Si no encontramos divisores, es primo.
+}
+
+
+10. Usa el bucle for para iterar de 0 a 100 e imprima la suma de todos los números.
+  
     ```sh
     La suma de todos los números de 0 a 100 es 5050.
+      let sum = 0;
+  for(let i = 0; i<=100; i++){
+  sum = sum  + i;
+  console.log(`el resultado es ${sum}`);
+  }
     ```
 
 11. Usa el bucle para iterar de 0 a 100 e imprimir la suma de todos los pares y la suma de todos los impares.
 
     ```sh
     La suma de todos los pares de 0 a 100 es 2550. Y la suma de todos los impares de 0 a 100 es 2500.
+    let sumPar = 0;
+    let sumImpar = 0;
+    for(let i = 0; i<=100; i++){
+      if(i % 2  === 0){
+        sumPar = sumPar + i;
+      }else{
+        sumImpar= sumImpar + i;
+      }
+    }
+    console.log(`la suma de los pares es ${sumPar}`)
+    console.log(`la suma de los impares es ${sumImpar}`)
     ```
 
 12. Usa el bucle para iterar de 0 a 100 e imprimir la suma de todos los pares y la suma de todos los impares. Imprimir suma de pares y suma de impares como un array
 
     ```sh
       [2550, 2500]
+      sumPar= 0;
+      sumImpar =0;
+      let arrayMixed = [];
+
+      for(let i = 0; i<=100; i++){
+        if(i % 2 === 0){
+          sumPar = sumPar +i;
+        }else {
+          sumImpar = sumImpar + i ; 
+        }
+      }
+    arrayMixed.push(sumPar,sumImpar)
+      console.log(arrayMixed)
     ```
 
 13. Desarrolla un pequeño script que genera una matriz de 5 números aleatorios
+      const matriz = [];
+       min = 1;
+        max = 5;
+
+      for(let i = 0; i < 5; i++){
+      const randomNumber = Math.floor(Math.random() * (max - min + 1) + min); //Si no incluyeras el + 1, nunca se alcanzaría el valor max.
+
+    matriz.push(randomNumber);
+      }
+      console.log(matriz)
+
 14. Desarrolla un pequeño script que genera una matriz de 5 números aleatorios. Los números debe ser únicos
+      const matriz = [];
+      min = 1;
+      max =10;
+
+      while (matriz.length < 5  ){
+        const randomNumber = Math.floor(Math.random() * (max - min +1) + min)
+        let existe = false;
+
+      for (let i =0; i < matriz.length; i++){
+        if(matriz[i] === randomNumber){
+          existe = true;
+        }
+      }     
+      
+      if(!existe){
+  matriz.push(randomNumber)
+      }
+  }     console.log(matriz)
+
 15. Desarrolla un pequeño script que genera un id aleatorio de seis caracteres:
 
     ```sh
     5j2khz
+
+      const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      id = "";
+      for (let i = 0; i< 6; i++){
+        const valoresRandom = Math.floor(Math.random() * caracteres.length)
+        id = id + caracteres[valoresRandom];
+      }
+              console.log(id)
+
     ```
 
 ### Ejercicios: Nivel 2
@@ -362,6 +518,17 @@ const mernStack = ["MongoDB", "Express", "React", "Node"];
 
    ```sh
      fe3jo1gl124g
+
+      const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      id = "";
+
+      const longitud = Math.floor(Math.random() * (15 - 5 + 1)) + 5;
+
+      for (let i = 0; i < longitud; i++){
+        const valoresRandom = Math.floor(Math.random() * caracteres.length)
+        id = id + caracteres[valoresRandom];
+      }
+              console.log(id)
    ```
 
    ```sh
@@ -372,29 +539,82 @@ const mernStack = ["MongoDB", "Express", "React", "Node"];
 
    ```sh
    '#ee33df'
+
+    const caracteresHex = "0123456789ABCDEF";
+  let hexColor = "#";
+    for ( let i = 0; i < 6; i++){
+      const indexCaracter = Math.floor(Math.random() * caracteresHex.length)
+      hexColor += caracteresHex[indexCaracter]
+    }
+    console.log(hexColor)
    ```
 
 1. Escribe un script que genere un número de color rgb aleatorio.
 
    ```sh
    rgb(240,180,80)
-   ```
+
+  let colores = [];
+  for (let i = 0; i < 3; i++) {
+  // Generamos un número aleatorio para cada color
+  colores.push(Math.floor(Math.random() * 256));
+  }
+
+ // Imprimir el valor RGB
+ console.log(`rgb(${colores[0]}, ${colores[1]}, ${colores[2]})`);
+
+    
 
 1. Usando el array countries anterior, crea un array como el siguiente.
+    const countriess = [
+  "Albania",
+  "Bolivia",
+  "Canada",
+  "Denmark",
+  "Ethiopia",
+  "Finland",
+  "Germany",
+  "Hungary",
+  "Ireland",
+  "Japan",
+  "Kenya",
+   ];
+      let arrayMayus = [];
 
-   ```sh
-   ["ALBANIA", "BOLIVIA", "CANADA", "DENMARK", "ETHIOPIA", "FINLAND", "GERMANY", "HUNGARY", "IRELAND", "JAPAN", "KENYA"]
+      for (let i = 0; i < countriess.length ; i++){
+         let  mayus = countriess[i].toUpperCase();
+          arrayMayus.push(mayus)
+      }
+            console.log(arrayMayus)
+
+
+    ["ALBANIA", "BOLIVIA", "CANADA", "DENMARK", "ETHIOPIA", "FINLAND", "GERMANY", "HUNGARY", "IRELAND", "JAPAN", "KENYA"]
    ```
 
 1. Usando el array countries anterior, crea un array para saber la longitud de cada país.
 
    ```sh
-   [7, 7, 6, 7, 8, 7, 7, 7, 7, 5, 5]
+
+
+   let arrayMayus =  ["ALBANIA", "BOLIVIA", "CANADA", "DENMARK", "ETHIOPIA", "FINLAND", "GERMANY", "HUNGARY", "IRELAND", "JAPAN", "KENYA"]
+        [7, 7, 6, 7, 8, 7, 7, 7, 7, 5, 5]
+
+        let arrayNum =[];
+
+        for (let i = 0; i < arrayMayus.length; i++){
+          let pais = arrayMayus[i];
+          let long = pais.length;
+          arrayNum.push(recorr)
+        } 
+        console.log(arrayNum)
+ 
    ```
 
 1. Utiliza el array countries para crear la siguiente array de arrays
 
    ```sh
+   const countriies = ["Albania","Bolivia","Canada","Denmark","Ethiopia","Finland", "Germany","Hungary","Ireland", "Japan","Kenya",  ];
+
      [
      ['Albania', 'ALB', 7],
      ['Bolivia', 'BOL', 7],
@@ -409,42 +629,161 @@ const mernStack = ["MongoDB", "Express", "React", "Node"];
      ['Japan', 'JAP', 5],
      ['Kenya', 'KEN', 5]
    ]
+  const arrayPadre = [];
+
+    for(let i = 0; i < countriies.length; i++ ){
+        const arrayHijo=[];
+        
+        let pais = countriies[i];
+        let tres = pais.slice(0, 3).toUpperCase();
+        let long = pais.length;
+        arrayHijo.push(pais, tres, long);
+          arrayPadre.push(arrayHijo);
+
+         }
+         console.log(arrayPadre);
+    
+    
+
    ```
 
 1. En el array countries anterior, verifica si hay un país que contenga la palabra 'land'. Si hay países que contienen 'land', imprimelo cono array. Si no hay ningún país que contenga la palabra'land', imprima 'Todos estos países no tienen la palabra land'.
 
    ```sh
    ['Finland','Ireland', 'Iceland']
+
+    const countriies = ["Albania","Bolivia","Canada","Denmark","Ethiopia","Finland", "Germany","Hungary","Ireland", "Japan","Kenya",  ];
+    const arrayNew =[];
+
+      for (let i = 0; i < countriies.length; i++){
+        let elemento = countriies[i];
+
+        if(elemento.includes('land')){
+          arrayNew.push(elemento)
+        }else{
+          console.log('Todos estos paises no tiene la palabra land')
+        }
+      }
+      console.log(arrayNew)
    ```
 
 1. En el array countries anterior, verifica si hay un país que termina con una subcadena (substring) 'ia'. Si hay países que terminan con 'ia', imprimelo como un array. Si no hay ningún país que contenga la palabra 'ia', imprime 'Estos países no terminan con ia'.
 
    ```sh
    ['Albania', 'Bolivia','Ethiopia']
+
+    const countriies = ["Albania","Bolivia","Canada","Denmark","Ethiopia","Finland", "Germany","Hungary","Ireland", "Japan","Kenya",  ];
+              const newPais =  [];
+
+    for(let i = 0; i < countriies.length ; i++){
+          let cadaUno = countriies[i];
+          
+          if(cadaUno.endsWith('ia')){
+            newPais.push(cadaUno);
+          }
+    }
+        if(newPais.length > 0 ){
+              console.log(newPais)
+          }else{
+            console.log('estos paises no terminan con ia')
+          }
+    
    ```
 
 1. Usando el array countries anterior, encuentre el país que contiene la mayor cantidad de caracteres.
 
    ```sh
    Ethiopia
+    const countriies = ["Albania","Bolivia","Canada","Denmark","Ethiopia","Finland", "Germany","Hungary","Ireland", "Japan","Kenya",  ];
+    let cadena = "";
+    for(let i=0; i < countriies.length; i++){
+      let tamano = countriies[i];
+      if(tamano.length > cadena.length){
+        cadena = tamano;
+      }
+    }
+            console.log(`este es el pais mas largo ${cadena}`)
+
    ```
 
 1. Usando el array countries anterior, encuentre el país que contiene sólo 5 caracteres.
 
    ```sh
    ['Japan', 'Kenya']
+     const countriies = ["Albania","Bolivia","Canada","Denmark","Ethiopia","Finland", "Germany","Hungary","Ireland", "Japan","Kenya",  ];
+
+     let paisActual = [];
+
+     for (let i = 0; i < countriies.length; i++){
+      let cadaUno = countriies[i];
+
+      if(cadaUno.length === 5 ){
+        paisActual.push(cadaUno);
+      }
+   }
+    console.log(paisActual)
+
    ```
 
 1. Encuentra la palabra más larga en el array webTechs
+ const webTechs = ["HTML","CSS","JavaScript","React","Redux","Node","MongoDB",];
+
+  let cadena = "";
+  for(let i=0; i< webTechs.length; i++){
+    let cadaUno = webTechs[i];
+    if(cadaUno.length > cadena.length){
+      cadena = cadaUno;
+    }
+  }
+        console.log(`${cadena} es la palabra mas larga `)
+
+
 1. Utiliza el array de webTechs para crear la el siguiente array de arrays:
 
    ```sh
    [["HTML", 4], ["CSS", 3],["JavaScript", 10],["React", 5],["Redux", 5],["Node", 4],["MongoDB", 7]]
+
+ 
+   arrayPadre = [];
+   for(let i= 0; i < webTechs.length; i++){
+    arrayHijo = [];
+    let cadaString = webTechs[i];
+    let longitud = cadaString.length;
+    arrayHijo.push(cadaString, longitud);
+    arrayPadre.push(arrayHijo)
+   }
+   console.log(arrayPadre)
    ```
 
 1. Una aplicación creada con MongoDB, Express, React y Node se denomina MERN stack app. Crea el acrónimo MERN usando el array mernStack
+  const mernStack = ["MongoDB","Express","React","Node"]
+            const AcroNimo = [];
+    for(let i = 0; i < mernStack.length; i++){
+      let primerLetra = mernStack[i][0];
+      AcroNimo.push(primerLetra)
+    }
+          AcroNimo.join("")
+    console.log(AcroNimo);
 1. Iterar a través del array, ["HTML", "CSS", "JS", "React", "Redux", "Node", "Express", "MongoDB"] usando el bucle for o el bucle for of e imprime los elementos.
+    const tecFront = ["HTML", "CSS", "JS", "React", "Redux", "Node", "Express", "MongoDB"];
+
+    for(const tecn of tecFront){
+      console.log(tecn);
+    }
+
+
 1. Este es un array de frutas, ['banana', 'orange', 'mango', 'lemon'] invierte el orden usando un bucle sin usar el método reverse().
+      const fruts = ['banana', 'orange', 'mango', 'lemon'];
+      for(let i = 0; i < fruts.length/2; i++) {
+          let j = fruts.length-i-1;
+          let a = fruts[i];
+          fruts[i] = fruts[j];
+          fruts[j]=a
+
+      }
+          console.log(fruts)
+          
+
 1. Imprime todos los elementos del array como se muestra a continuación:
 
    ```js
@@ -462,6 +801,12 @@ const mernStack = ["MongoDB", "Express", "React", "Node"];
      NODE
      EXPRESS
      MONGODB
+
+     for(const todo of fullStack){
+        for(const var of todo){
+          console.log(todo.toUpperCase())
+        }
+     }
    ```
 
 ### Ejercicios: Nivel 3

@@ -286,6 +286,18 @@ isRaining
 
    Ingrese su edad:15
    Te faltan 3 años para conducir.
+
+  let edad = prompt ('Ingrese su edad')
+   edad = parseFloat (edad)
+
+  if (isNaN(edad)) {
+    alert('Inserta caracateres tipo numero')
+  }else if (edad >= 18){
+    alert('Tienes la edad suficiente para conducir')
+  }else{
+       let operacion = 18 - edad
+    alert(`te faltan ${operacion} años para conducir`)
+  }
    ```
 
 1. Compara los valores de myAge y yourAge usando if... else. Según la comparación, registre el resultado en la consola indicando quién es mayor (tú o yo). Utilice prompt(“Ingrese su edad:”) para obtener la edad como entrada.
@@ -293,6 +305,19 @@ isRaining
    ```sh
    Ingrese su edad: 30
    Eres 5 años mayor que yo.
+
+  let myAge = prompt('Ingresa tu edad')
+   let yourAge = 22
+
+   if (isNaN(myAge)){
+    alert('Valores incorrectos')
+   }else if (myAge > yourAge){
+    let opera = Math.abs(myAge - yourAge)
+    console.log(`Eres ${opera} mayor que yo`)
+   }else{
+         let opera = Math.abs(myAge - yourAge)
+  console.log(`Yo soy mayor por ${opera} años`)
+   }
    ```
 
 1. Si a es mayor que b, devuelve 'a es mayor que b'; de lo contrario, 'a es menor que b'. Trate de implementarlo de maneras diferentes
@@ -303,6 +328,15 @@ isRaining
    ```js
    let a = 4;
    let b = 3;
+
+   if (a>b){
+    console.log(`${a} es mayor que ${b}`)
+   }else{
+    console.log(`${b} es mayor que ${a}`)
+   }
+
+    a > b ?console.log(`${a} es mayor que ${b}`) : console.log(`${b} es mayor que ${a}`)
+
    ```
 
    ```sh
@@ -317,6 +351,18 @@ isRaining
 
    Ingrese un número: 9
    9 es un número impar
+
+
+   let numero = prompt ('Ingres un numero')
+   numero = parseFloat (numero)
+
+   if (isNaN (numero)){
+    alert('ingrese valores numericos')
+   } else if (numero % 2 === 0 ){
+    alert (`Felicidades ${numero} es par`)
+   }else{
+    alert(`Lo siento ${numero} no es par`)
+   }
    ```
 
 ### Ejercicios: Nivel 2
@@ -327,6 +373,49 @@ isRaining
    - 60-69, C
    - 50-59, D
    - 0-49, F
+
+  let calificacion = prompt('Ingresa su calificacion')
+   calificacion = parseFloat(calificacion)
+  
+  if (isNaN(calificacion) ){
+    alert('Añade valores numericos')
+ }else if (calificacion >=0){
+      alert(`Tu calificacion fue ${calificacion} tienes una F`)
+  }else if(calificacion >=49){
+    alert(`Tu calificacion fue ${calificacion} tienes una F`)
+  }else if (calificacion >=59){
+        alert(`Tu calificacion fue ${calificacion} tienes una D`)
+  }else if (calificacion >=69){
+        alert(`Tu calificacion fue ${calificacion} tienes una C`)
+  }else if(calificacion>=89){
+        alert(`Tu calificacion fue ${calificacion} tienes una B`)
+  }else if (calificacion>=100){
+        alert(`Tu calificacion fue ${calificacion} tienes una A`)
+  }else{
+    alert('agregea un valor')
+  }
+  /*CODIGO MEJORADO /*
+  let calificacion = prompt('Ingresa tu calificación');
+calificacion = parseFloat(calificacion);
+
+if (isNaN(calificacion)) {
+    alert('Por favor, ingresa un valor numérico válido');
+} else if (calificacion >= 80 && calificacion <= 100) {
+    alert(`Tu calificación fue ${calificacion}. Tienes una A.`);
+} else if (calificacion >= 70 && calificacion <= 79) {
+    alert(`Tu calificación fue ${calificacion}. Tienes una B.`);
+} else if (calificacion >= 60 && calificacion <= 69) {
+    alert(`Tu calificación fue ${calificacion}. Tienes una C.`);
+} else if (calificacion >= 50 && calificacion <= 59) {
+    alert(`Tu calificación fue ${calificacion}. Tienes una D.`);
+} else if (calificacion >= 0 && calificacion <= 49) {
+    alert(`Tu calificación fue ${calificacion}. Tienes una F.`);
+} else {
+    alert('Por favor, ingresa una calificación válida entre 0 y 100.');
+}
+
+  
+   
 1. Consulta si la temporada es Otoño, Invierno, Primavera o Verano.
    Si la entrada del usuario es :
 
@@ -334,6 +423,37 @@ isRaining
    - Diciembre, Enero o Febrero, la temporada es Invierno.
    - Marzo, Abril o Mayo, la temporada es Primavera
    - Junio, Julio o Agosto, la temporada es Verano
+
+let Month = prompt('Ingresa tu Mes')
+  let clima = Month.toLowerCase();
+
+  switch(clima){
+    case "septiembre":
+    case "octubre":
+    case "noviembre":
+    alert('Estamos en temporada de Otoño!')
+    break;
+
+    case "diciembre":
+    case  "enero":
+    case  "febrero":
+    alert('Estamos en temporada de invierno!')
+    break;
+
+    case "marzo":
+    case "abril":
+    case "mayo":
+    alert('Estamos en temporada de Primavera!')
+    break;
+
+    case "junio":
+    case "julio":
+    case "agosto":
+    alert('Estamos en Verano!') 
+    break;
+      default:
+    alert('Eso no es es un mes')
+  }
 
 1. Compruebe si un día es un día de fin de semana o un día laborable. Su script tomará el día como entrada.
 
@@ -349,6 +469,26 @@ isRaining
 
     ¿Qué día es hoy? ViErNes
     El viernes es un día laborable.
+
+    let dia = prompt('Ingresa tu dia')
+    let day = dia.toLowerCase();
+
+    switch(day){
+
+      case "lunes":
+      case "martes":
+      case "miercoles":
+      case "jueves":
+      case "viernes":
+      alert(`${day} un dia laborable`)
+      break;
+      case "sabado":
+      case "domingo":
+      alert(`${day} es un fin de semana`)
+      break;
+      default:
+      alert('Ese no es un dia')
+    }
 ```
 
 ### Ejercicios: Nivel 3
@@ -367,9 +507,78 @@ isRaining
 
   Introduce un mes: FEbrero
   Febrero tiene 28 días.
+
+  let month = prompt('Ingresa tu mes');
+  let diaMes = month.toLowerCase();
+  let primeraMes  = diaMes.charAt(0).toUpperCase() + diaMes.slice(1);
+
+  switch (diaMes){
+    case "enero":
+    case "marzo":
+    case "mayo":
+    case "julio":
+    case "agosto":
+    case "octubre":
+    case "diciembre":
+    alert(`${primeraMes} tiene 31 dias`)
+    break;
+    case "febrero":
+    alert(`${primeraMes} tiene 28 dias`)
+    break;
+    case "abril":
+    case "junio":
+    case "septiembre":
+    case "noviembre":
+    alert(`${primeraMes} tiene 30 dias`)
+    break;
+    default :
+    alert('Ese no es un mes') 
+
+  }
+
+  
+  */ IMPLEMENTADO EN IF /*
+  let month = prompt('Ingresa tu mes');
+  let diaMes = month.toLowerCase(); // Convertimos el texto a minúsculas
+  let primeraMes = diaMes.charAt(0).toUpperCase() + diaMes.slice(1); // Para mostrar la primera letra en mayúscula
+
+  if (diaMes === "enero" || diaMes === "marzo" || diaMes === "mayo" || diaMes === "julio" ||
+    diaMes === "agosto" || diaMes === "octubre" || diaMes === "diciembre") {
+  alert(`${primeraMes} tiene 31 días`);
+  } else if (diaMes === "febrero") {
+  alert(`${primeraMes} tiene 28 días`);
+  } else if (diaMes === "abril" || diaMes === "junio" || diaMes === "septiembre" || diaMes === "noviembre") {
+  alert(`${primeraMes} tiene 30 días`);
+  } else {
+  alert('Ese no es un mes');
+  }
 ```
 
 1. Escribe un programa que diga el número de días en un mes, ahora considera un año bisiesto.
+let mes = prompt ('ingresa tu mes')
+let ano = prompt ('ingresa tu año')
+ano = parseInt (ano)
+let chicaFrase = mes.toLowerCase();
+let primeraFrase = mes.charAt(0).toUpperCase() + mes.slice(1);
+
+function bisiesto (ano){
+return (ano % 4 === 0 &&  ano % 100 !== 0 || ano % 400 === 0)
+}
+
+if (chicaFrase === "enero" || chicaFrase === "marzo" || chicaFrase === "mayo" || chicaFrase === "julio" || chicaFrase === "agosto" || chicaFrase === "octubre" || chicaFrase === "diciembre"){
+  alert (`${primeraFrase} tiene 31 dias`)
+}else if (chicaFrase === "febrero"){
+  if (bisiesto (ano)){
+    alert(`${primeraFrase} tiene 29 dias porque ${ano} es bisiesto`)
+  } else{
+    alert(`${primeraFrase} tiene 28 dias porque ${ano} no es bisiesto`)
+  }
+}else if (chicaFrase === "abril" || chicaFrase === "junio" || chicaFrase === "septiembre" || chicaFrase === "noviembre"){
+alert(`${primeraFrase} tiene 30 dias`)
+}else{
+  alert('ese no es un mes ni  un año existente')
+}
+
 
 🎉 FELICITACIONES ! 🎉
 

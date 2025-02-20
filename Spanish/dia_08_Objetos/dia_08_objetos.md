@@ -425,15 +425,58 @@ console.log(copyPerson.hasOwnProperty("score"));
 ### Ejercicios: Nivel 1
 
 1. Crear un objeto vacío llamado dog
+  const dog = {}
 1. Imprime el objeto dog en la consola
+  const dog = {}
+  console.log(dog);
 1. Añade las propiedades name, legs, color, age y bark para el objeto dog. La propiedad bark es un método que devuelve _woof woof_
-1. Obtener name, legs, color, age y el valor de bark del objeto dog
-1. Establecer nuevas propiedades al objeto dog: breed, getDogInfo
+    const dog = {
+      name : "Max",
+      legs: 4,
+      color : "brown",
+      age : 3,
+      bark (){
+        return "woof woof"
+      },
 
+    }
+
+1. Obtener name, legs, color, age y el valor de bark del objeto dog
+    const objectDog =  Object.entries(dog);
+    console.log(objectDog);
+1. Establecer nuevas propiedades al objeto dog: breed, getDogInfo
+    dog.breed = "Labrador"
+  dog.getDogInfo = function () {
+  return `Name: ${this.name}, Age: ${this.age}, Breed: ${this.breed}`;
+};
 ### Ejercicios: Nivel 2
 
 1. Encuentra a la persona que tiene muchas habilidades en el objeto de los usuarios.
+    let masSkillsUser = "";
+    let maxSkills = 0;
+    
+    for(const [key, value] of Object.entries(useers)){
+      const numeroSkills = value.skills.length;
+      if(numeroSkills > maxSkills){
+       maxSkills = numeroSkills;
+      masSkillsUser = key;
+    }
+    }
 1. Contar los usuarios conectados, contar los usuarios que tienen más de 50 puntos del siguiente objeto.
+
+let usuarioConectado = 0;
+let usuarioConMasDe50Puntos = 0;
+
+for (const user of Object.values(users)){
+  if(user.isLoggedIn){
+    usuarioConectado++; 
+  }
+  if(user.points >=50){
+    usuarioConMasDe50Puntos++;
+  }
+}
+  console.log(`Usuarios conectados ${usuarioConectado}`)
+  console.log(`Usuarios con mas de 50 puntos ${usuarioConMasDe50Puntos}`)
 
    ````js
    const users = {
@@ -491,15 +534,75 @@ console.log(copyPerson.hasOwnProperty("score"));
    ````
 
 1. Encontrar personas que sean desarrolladores MERN stack del objeto de los usuarios
+    const mernStack = ['MongoDB','Express','React','Node'];
+    for(const user in users){
+      const skills = users[user].skills;
+      const hasMern = mernStack.every(tech => skills.includes(tech));
+      if(hasMern){
+        console.log(`${user} tiene la tecnologia MERN`)
+      }
+
+    }
 1. Establezca su nombre en el objeto usuarios sin modificar el objeto usuarios original
+    users.Paco = {
+      email: 'mike@mike.com',
+   skills: ['HTML', 'CSS', 'React', 'Node'],
+   age: 28,
+   isLoggedIn: true,
+   points: 60
+    }
 1. Obtener todas las claves o propiedades del objeto usuarios
+  const clavesUsers = Object.keys(users)
+
 1. Obtener todos los valores del objeto usuarios
+const valoresUsers = Object.values(users)
+
 1. Utilice el objeto países para imprimir el nombre del país, la capital, la población y los idiomas.
+
+for (const key in countries) {
+  console.log(countries[key].name);
+    console.log(countries[key].capital);
+    console.log(countries[key].population);
+      console.log(countries[key].languages);
+
+}
 
 ### Ejercicios: Nivel 3
 
 1.  Crea un objeto literal llamado _personAccount_. Tiene las propiedades _firstName, lastName, incomes, expenses_ y tiene los metodos _totalIncome, totalExpense, accountInfo,addIncome, addExpense_ y _accountBalance_. Incomes es un conjunto de ingresos y su descripción y expenses es un conjunto de ingresos y su descripción.
 
+    personAccount = {
+      firstName: "Paco",
+      lastName : "Batalla",
+      incomes : [
+        {amount: 5000, description: 'Salary'},
+        {amount : 5000, description: 'Freelance work'}
+      ],
+      expenses : [
+        {amount: 1000, description: "Rent"},
+        {amount: 500, description: "Golosinas"}
+      ],
+
+      totalIncome (){
+        return this.incomes.reduce((total,income)  => total + income.amount,0);
+      },
+
+      totalExpense(){
+        return this.expenses.reduce((total,expense) => total + expense.amount, 0);
+      },
+      accountInfo(){
+        return `${this.firstName} ${this.lastName} tiene un balance de cuenta. Ingresos totales de ${this.totalIncomes()} y gastos totales de %{this.totalExpense()}`
+      },
+      addIncome(amount, description){
+        this.incomes.push({amount, description});
+      },
+      addExpense(amount, descriptiom){
+        this.expenses.push({amount, description})
+      },
+      accountBalance(){
+        return this.totalIncome() - this.totalExpense();
+      },
+    }
 2.  \*\*\*\* Preguntas:2, 3 y 4 se basan en los siguientes dos arrays: users y products ()
 
 ```js
@@ -580,12 +683,74 @@ const products = [
 Imagina que estás obteniendo la colección de usuarios anterior de una base de datos MongoDB.
 a. Crear una función llamada signUp que permita al usuario añadirse a la colección. Si el usuario existe, informar al usuario que ya tiene una cuenta.  
  b. Crear una función llamada signIn que permita al usuario iniciar sesión en la aplicación
+     function singUp (username, email, password){
+        const userExist = users.some(user =>user.username === username || user.email === email);
 
+        if(userExist){
+          return "Este Usuario ya existe";
+        }
+        
+        const newUser ={
+          _id : idRandom(),
+          username,
+          email,
+          password,
+          createdAt: new Date ().toLocaleString(),
+          isLoggedIn: false,
+        },
+        user.push(newUser);
+        return "usuario registrado con exito"
+
+      }
+      function singIn (username, password){
+        const user = user.find(user => user.username === username && user.password === password);
+      
+      if(user){
+        user.isLoggedIn = true;
+        return "Inicio de sesion exitoso"
+      }else{
+        return "Nombre de usuario o contraseña incorrecta"
+       }
+      }
+
+      function idRandom (){
+        let cadenaId = "abcdeeghijklmnopqrstuvwxyz1234567890"
+        let cadenaVacia = ""
+        for(let i =0; i< 8; i++){
+        let idAleatorio = cadenaId.charAt(Math.floor(Math.random()* cadenaId.length));
+        cadenaVacia += idAleatorio;
+        }
+                return cadenaVacia;
+
+        }
 3. El array de productos tiene tres elementos y cada uno de ellos tiene seis propiedades.
    a. Crear una función llamada rateProduct que califique el producto
-   b. Crear una función llamada averageRating que calcule la valoración media de un producto
+   b. Crear una función llamada averageRating que calcule la valoración media de un producto 
+   PENDIENTE
 
 4. Crear una función llamada likeProduct. Esta función ayuda a dar un like al producto. Si no le gusta eliminar el like y si le gusta darle like
+
+  function likeProduct(productId, userId) {
+  // Buscar el producto por su ID
+  const product = products.find(product => product._id === productId);
+
+  if (!product) {
+    return "Producto no encontrado";
+  }
+
+  // Verificar si el usuario ya le ha dado like al producto
+  const userIndex = product.likes.indexOf(userId);
+
+  if (userIndex === -1) {
+    // Si el usuario no ha dado like, agregar el like
+    product.likes.push(userId);
+    return "Like agregado";
+  } else {
+    // Si el usuario ya ha dado like, eliminarlo
+    product.likes.splice(userIndex, 1);
+    return "Like eliminado";
+  }
+}
 
 🎉 ¡FELICITACIONES! 🎉
 

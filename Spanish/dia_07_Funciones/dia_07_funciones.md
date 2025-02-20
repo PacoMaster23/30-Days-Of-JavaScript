@@ -328,6 +328,7 @@ Las funciones de autoinvocación son funciones anónimas que no necesitan ser ll
   console.log(n * n);
 })(2); // 4, pero en lugar de solo imprimir si queremos regresar y almacenar los datos, hacemos lo que se muestra a continuación
 
+
 let squaredNum = (function (n) {
   return n * n;
 })(10);
@@ -509,17 +510,106 @@ Será cubierto en otra sección.
 ### Ejercicios: Nivel 1
 
 1. Declare una función _fullName_ e imprima su nombre completo.
+
+  function fullName (){
+    let name = "Francisco Batalla"
+    return name;
+  }
+  fullName()  
 2. Declare una función _fullName_ y ahora toma firstName, lastName como parámetro y retorna su nombre completo.
+
+  function fullName (first, second){
+      let space = " ";
+      let fullName = first + space + second;
+      return fullName;
+  }
+  console.log(fullName("Francisco", "Batalla"))
 3. Declare una función _addNumbers_ que toma dos parámetros y retorna la suma de ambos.
+    function addNumbers (){
+      let a = 12; 
+      let b = 23;
+      let suma = a + b;
+      return suma
+    }
+    addNumbers()
+
 4. El área de un rectángulo se calcula de la siguiente manera: _area = length x width_. Escribe una función _areaOfRectangle_ que calcule el área de un rectángulo.
+
+function areaOfRectangle (){
+  let base = 10;
+  let altura = 34;
+  let area = base * altura;
+  return area;
+}
+areaOfRectangle ()
+
+function areaOfRectangle (base, altura){
+  let area = base * altura;
+  return area;
+}
+areaOfRectangle ()
+
 5. El perímetro de un rectángulo se calcula de la siguiente manera: _perimeter= 2x(length + width)_. Escribe una función _perimeterOfRectangle_ que calcule el perímetro de un rectángulo.
+
+function perimeterOfRectangle (lado1, lado2, lado3, lado4){
+  let peri = lado1 + lado2 + lado3 + lado4
+  return peri;
+}
+  perimeterOfRectangle(12,12,12,12)
+
 6. El volumen de un prisma rectangular se calcula de la siguiente manera: _volume = length x width x height_. Escribe una función _volumeOfRectPrism_ que calcule el volumen de un prisma.
+
+  function volumeOfRectPrism (len,wit,hei){
+    let volumen = len * wit * hei;
+    return volumen;
+  }
+    volumeOfRectPrism (12,34,12);
+
 7. El área de un círculo se calcula de la siguiente manera: _area = π x r x r_. Escribe una función _areaOfCircle_ que calcule el área de un círculo.
+  function areaOfCircle (radio, Pi = 3.14){
+    let area = Math.floor(Pi * radio * radio);
+    return area; 
+  }
+    areaOfCircle(23);
+
 8. La circunferencia de un círculo se calcula de la siguiente manera: _circumference = 2πr_. Escribe una función _circumOfCircle_ que calcule la circunferencia de un círculo.
+
+  function circumOfCircle (radio, Pi = 3.14){
+      let circun = 2 * Math.floor(Pi * radio);
+      return circun;
+  }
+  circumOfCircle(12);
+
 9. La densidad de una sustancia se calcula de la siguiente manera:_density= mass/volume_. Escribe una función _density_ que calcule la densidad de una sustancia.
+  function density (mass, volume){
+      let densi = mass / volume;
+      return densi;
+  }
+  density(12,4);
+
 10. La velocidad se calcula dividiendo el total de la distancia recorrida por un objeto en movimiento entre el tiempo total. Escribe una función que calcule la velocidad de un objeto en movimiento, _speed_.
+
+function speed(distance, time) {
+  return distance / time;
+}
+console.log(speed(100, 2)); // 50
+
 11. El peso de una sustancia se calcula de la siguiente manera: _weight = mass x gravity_. Escribe una función _weight_ que calcule el peso de una sustancia.
+
+  function weight (mass, gravity = 9.81){
+    let peso = Math.floor(mass * gravity);
+    return peso;
+  }
+    weight (23);
+
 12. La temperatura en °C se puede convertir a °F usando esta fórmula: _°F = (°C x 9/5) + 32_. Escribe una función _convertCelsiusToFahrenheit_ que convierta °C a °F.
+
+function convertCelsiusToFahrenheit (celcius){
+  let conver = Math.floor(celcius * 1.8 + 32);
+  return conver;
+}
+  convertCelsiusToFahrenheit(30);
+
 13. El índice de masa corporal (IMC) se calcula de la siguiente manera: _imc = peso en Kg / (altura x altura) en m2_. Escribe una función que calcule _imc_. El IMC se utiliza para definir de forma amplia diferentes grupos de peso en adultos de 20 años o más. Compruebe si una persona tiene un _peso bajo, peso normal, con sobrepeso_ u _obeso_ según la información que se proporciona a continuación.
 
     - Se aplican los mismos parámetros de grupos tanto a hombres como a mujeres.
@@ -528,7 +618,45 @@ Será cubierto en otra sección.
     - _Sobrepeso_: IMC de 25 a 29,9
     - _Obeso_: IMC es 30 o más
 
+
+     function imc (peso, alturaCm){
+      let altura = alturaCm / 100;
+      let imc = peso / (altura * altura);
+
+      if ( imc <= 18.5){
+        return "Peso bajo";
+
+      }else if(imc <= 24.9){
+        return "Peso normal";
+
+      }else if(imc <= 29.9){
+        return "Sobrepeso";
+      }else{
+        return "Obeso"
+      }
+    
+    }
+    console.log(imc(40,171))
+
 14. Escribe una función llamada _checkSeason_, toma un parámetro de mes y retorna la estación: Otoño, Invierno, Primavera o Verano.
+
+  function checkSeason(mes) {
+  // Convertir el mes a minúsculas para evitar problemas con mayúsculas/minúsculas
+  mes = mes.toLowerCase();
+
+  // Determinar la estación según el mes
+  if (mes === "diciembre" || mes === "enero" || mes === "febrero") {
+    return "Invierno";
+  } else if (mes === "marzo" || mes === "abril" || mes === "mayo") {
+    return "Primavera";
+  } else if (mes === "junio" || mes === "julio" || mes === "agosto") {
+    return "Verano";
+  } else if (mes === "septiembre" || mes === "octubre" || mes === "noviembre") {
+    return "Otoño";
+  } else {
+    return "Mes no válido"; // Manejo de errores si el mes no es válido
+  }
+}
 15. Math.max retorna su argumento más grande. Escriba una función findMax que tome tres argumentos y devuelva su máximo sin usar el método Math.max.
 
     ```js
@@ -537,6 +665,20 @@ Será cubierto en otra sección.
     console.log(findMax(0, -10, -2));
     0;
     ```
+    function findMax (valor1, valor2, valor3){
+
+      let max = valor1;
+
+        if(valor2 > max){
+          max = valor2;
+        } 
+        
+        if (valor3 > max){
+          max = valor3;
+        }
+        return max;
+      }
+    console.log(findMax(12,23,10))
 
 ### Ejercicios: Nivel 2
 
@@ -632,6 +774,28 @@ Será cubierto en otra sección.
    UbGxOFI7UXSWAyKN
    dIV0SSUTgAdKwStr
    '
+
+   function userIdGeneratedByUser (){
+
+    let cantidad = parseInt(prompt("Ingresa la cantidad de caracteres"));
+    let cantidadId = parseInt(prompt("Cantidad d Id's que se generaran"));
+
+       if(isNaN(cantidad) || isNaN(cantidadId)){
+        console.log("No son valores numericos");
+        return;
+      }
+    
+    const caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+
+  for(let i=0; i < cantidadId; i++){
+         let id = "";
+         for(let j = 0; j< cantidad; j++){
+          id+= caracteres.charAt(Math.floor(Math.random()*caracteres.length));
+         }
+         console.log(id)
+   }
+   }
    ```
 
 1. Escriba una función llamada _rgbColorGenerator_ que genera colores rgb
@@ -639,13 +803,99 @@ Será cubierto en otra sección.
    ```sh
    rgbColorGenerator()
    rgb(125,244,255)
+
+  function rgbColor (){
+    let randomNumber = Math.floor(Math.random() * 256);
+    let red = Math.floor(Math.random() * 256);
+    let blue  = Math.floor(Math.random() * 256);
+    let green = Math.floor(Math.random() * 256);
+
+    return ` rgb(${red}, ${green}, ${blue})`
+
+  }
    ```
 
 1. Escriba una función **_arrayOfHexaColors_** que retorna cualquier cantidad de colores hexadecimales en un array.
+
+    function arrayOfHexaColors (numColor = 1){
+    let caracteres = "0123456789ABCDEF"
+    let array = [];
+
+    for(let i= 0; i < numColor; i++){
+      let color = "#"
+    for(let j= 0; j< 6; j++){
+      color += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
+    }
+    array.push(color);
+    }
+    return array;
+  }
 1. Escriba una función **_arrayOfRgbColors_** que retorna cualquier cantidad de colores RGB en un array.
+    function arrayOfRgbColors (numColors = 1 ){
+      let array = [];
+    
+      for(let i=0; i< numColors; i++){
+      let red = Math.floor(Math.random() * 256);
+        let green = Math.floor(Math.random() * 256);
+         let blue = Math.floor(Math.random() * 256);
+                  array.push (`${red}, ${green}, ${blue}`)
+
+      }
+
+         return array;
+    }
 1. Escriba una función **_convertHexaToRgb_** que convierta el color hexa a rgb y retorna un color rgb.
-1. Escriba una función **_convertRgbToHexa_** que convierta rgb a color hexa y retorna un color hexa.
+  function converHexaToRgb (hex){
+    if(hex.charAt(0) === "#'){
+      hex= hex.slice(1);
+    }
+
+    if(hex.lenght !==6){
+      console.log("Color no valido")
+      return null;
+    }
+
+    let red = parseInt(hex.subString(0,2),16);
+    let green = parseInt(hex.subString(0,2),16);
+    let blue = parseInt(hex.subString(0,2)16);
+
+    return `rgb(${red}, ${green}, ${blue})`
+  }
+1. Escriba una función **_convertRgbToHexa_** que convierta rgb a color hexa y   retorna un color hexa.
+  function convertRgbtoHexa (red, green, blue){
+    let redHex = red.toString(16).padStart(2,'0');
+    let greenHex = green.toString(16).padStart(2,'0');
+    let blueHex = blue.toString(16).padStart(2,'0');
+      return `#${redHex}${greenHex}${blueHex}`;
+
+  }
 1. Escriba una función **_generateColors_** que pueda generar cualquier número de colores hexa o rgb.
+
+function generateColor( type, Numcolor=1){
+  let array = [];
+      let caractereshexa = "0123456789ABCDEF"
+
+  if(type === "rgb"){
+  for(let i=0; i< Numcolor; i++){
+      let red = Math.floor(Math.random() * 256);
+        let green = Math.floor(Math.random() * 256);
+         let blue = Math.floor(Math.random() * 256);
+                  array.push (`rgb(${red}, ${green}, ${blue})`)
+      }
+  }else if (type === "hexa"){
+      for(let j=0; j < Numcolor; j++){
+        let color = "#"
+        for( let k=0; k<6; k++){
+          color += caractereshexa.charAt(Math.floor(Math.random()* caractereshexa.length))
+        }
+        array.push(color);
+      } 
+  }else{
+    console.log("Tipo de color no reconocido")
+  }
+return array;
+
+}
 
    ```js
    console.log(generateColors("hexa", 3)); // ['#a3e12f', '#03ed55', '#eb3d2b']
@@ -655,9 +905,39 @@ Será cubierto en otra sección.
    ```
 
 1. Llame a su función _shuffleArray_, toma un array como parámetro y devuelve un array mezclada
+    function suffleArray (arr){
+        for(let i = arr.length -1; i > 0; i--){
+          const j = Math.floor(Math.random() * (i +1));
+          
+          [arr[i], arr[j]] = [arr[j], arr[i]]
+        }
+        return arr;
+    }
 1. Llame a su función _factorial_, toma un número entero como parámetro y devuelve un factorial del número.
+        function factorial (num){
+          let factorial = 1;
+          for(let i =1; i <= num; i++){
+              facto = facto * i
+            }
+            return facto;
+        }
 1. Llame a su función _isEmpty_, toma un parámetro y verifica si está vacío o no.
+    function isEmpty (type){
+        if (type === "" || type === undefined || type === null){
+          return "es una cadena vacia";
+        }else{
+          return "No es una cadena vacia"
+        }
+    }
+
 1. Llame a su función _sum_, toma cualquier cantidad de argumentos y devuelve la suma.
+      function sum (...numbers){
+          let sum = 0;
+        for( const element of numbers){
+          sum += element
+          }
+  return sum;
+    }
 1. Escriba una función llamada _sumOfArrayItems_, toma un array como parámetro y retorna la suma de todos los elementos. Compruebe si todos los elementos de la matriz son tipos de números. Si no, dé una respuesta razonable.
 1. Escribe una función llamada _average_, toma un array como parámetro y retorna el promedio de los elementos. Compruebe si todos los elementos de la matriz son tipos de números. Si no, dé una respuesta adecuada.
 1. Escriba una función llamada _modifyArray_ que tome un array como parámetro y modifique el quinto elemento del array y retorna el array. Si la longitud del array es inferior a cinco, retorna 'elemento no encontrado'.

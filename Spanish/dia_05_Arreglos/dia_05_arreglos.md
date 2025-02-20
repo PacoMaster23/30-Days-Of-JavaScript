@@ -87,11 +87,11 @@ Array con valores iniciales. Usamos _length_ para encontrar la longitud del arra
 
 ```js
 const numbers = [0, 3.14, 9.81, 37, 98.6, 100]; // array de  números
-const fruits = ["banana", "orange", "mango", "lemon"]; // array de strings, Fruits
+  const fruits = ["banana", "orange", "mango", "lemon"]; // array de strings, Fruits
 const vegetables = ["Tomato", "Potato", "Cabbage", "Onion", "Carrot"]; // array de strings, vegetables
-const animalProducts = ["milk", "meat", "butter", "yoghurt"]; // array de strings, products
-const webTechs = ["HTML", "CSS", "JS", "React", "Redux", "Node", "MongDB"]; // array web, technology
-const countries = ["Finland", "Denmark", "Sweden", "Norway", "Iceland"]; // array de strings, country
+  const animalProducts = ["milk", "meat", "butter", "yoghurt"]; // array de strings, products
+  const webTechs = ["HTML", "CSS", "JS", "React", "Redux", "Node", "MongDB"]; // array web, technology
+  const countries = ["Finland", "Denmark", "Sweden", "Norway", "Iceland"]; // array de strings, country
 
 // Imprimimos el array y su longitud
 
@@ -139,6 +139,7 @@ const arr = [
   { country: "Finland", city: "Helsinki" },
   { skills: ["HTML", "CSS", "JS", "React", "Python"] },
 ]; // arr contiene diferentes tipos de datos
+
 console.log(arr);
 ```
 
@@ -156,6 +157,7 @@ let companiesString = "Facebook, Google, Microsoft, Apple, IBM, Oracle, Amazon";
 const companies = companiesString.split(",");
 
 console.log(companies); // ["Facebook", " Google", " Microsoft", " Apple", " IBM", " Oracle", " Amazon"]
+
 let txt =
   "I love teaching and empowering people. I teach HTML, CSS, JS, React, Python.";
 const words = txt.split(" ");
@@ -690,32 +692,127 @@ const webTechs = [
 ```
 
 1. Declara un array _vacío_.
+const array = [];
+console.log(array);
+
 2. Declara un array com mas de 5 elementos.
+const array = ["Banana","Orange","Strawberry","kiwi", "apple"]
+
 3. Encuentra la longitud de tu array.
+const frutas = ["Banana","Orange","Strawberry","kiwi", "apple"]
+console.log("Su longitud de frutas es ",frutas.lenght)
+
 4. Obtenga el primer elemento, el elemento del medio y el último elemento de un array.
+const frutas = ["Banana","Orange","Strawberry","kiwi", "apple"]
+console.log(frutas[0])
+console.log([Math.floor (frutas.length / 2 )])
+console.log(frutas[frutas.length -1])
+
 5. Declara un array llamado _mixedDataTypes_, coloque diferentes tipos de datos en el array y encuentre la longitud del array. El tamaño del array debe ser mayor que 5.
+  const mixedDataTypes = [1, "dos", true, 12.2, "cinco", 'Pinocho']
+
 6. Declare un variable array de nombre _itCompanies_ y asignarles valores iniciales Facebook, Google, Microsoft, Apple, IBM, Oracle y Amazon.
+  const itCompanies = ["Facebook", "Google", "Microsoft", "Apple", "IBM","Oracle","Amazon"]
+
 7. Imprima el array usando _console.log()_.
+  console.log(itcompanies)
+
 8. Imprima el número de empresas en el array.
+  console.log(itCompanies.length)
+
 9. Imprime la primer empresa , la intermedia y la última empresa
+    console.log(itCompanies[0])
+    console.log(itCompanies[Math.floor(itCompanies.length / 2)])
+    console.log(itCompanies[itCompanies.length -1])
+
 10. Imprime cada empresa.
+  console.log(itCompanies)
+
 11. Cambie el nombre de cada empresa a mayúsculas uno por uno e imprímalos.
+     const itCompanies = ["Facebook", "Google", "Microsoft", "Apple", "IBM","Oracle","Amazon"]
+     itCompanies [0]= "FACEBOOK"
+     itCompanies [1] = "GOOGLE"
+     itCompanies [2] = "MICROSOFT"
+     itCompanies [3] ="APPLE"
+     itCompanies [4] = "IBM"
+     itCompanies [5] = "ORACLE"
+     itCompanies [6] = "AMAZON"
+     console.log(itCompanies)
+ 
 12. Imprime el array como una oración: Facebook, Google, Microsoft, Apple, IBM, Oracle y Amazon son grandes empresas de TI.
+       const itCompanies = ["Facebook", "Google", "Microsoft", "Apple", "IBM","Oracle","Amazon"]
+      console.log (itCompanies.toString() + "son grandes empresas de TI")
+
 13. Compruebe si existe una determinada empresa en el array itCompanies. Si existe, retorna la empresa; de lo contrario, retorna la empresa _no existe_
+       const itCompanies = ["Facebook", "Google", "Microsoft", "Apple", "IBM","Oracle","Amazon"]
+          let indexOf = itCompanies.indexOf("Google")
+
+          if (indexOf === -1){
+            alert('No existe ese elemento')
+          }else{
+            alert('Si existe ese elemento')
+          }
+
 14. Filtre las empresas que tienen más de una 'o' sin el método _filter()_
-15. Ordene el array usando el método _sort()_
-16. Invierte la array usando el método _reverse()_
-17. Cortar las primeras 3 empresas del array
-18. Cortar las últimas 3 empresas del array
-19. Cortar la empresa o empresas intermedias de TI del array
-20. Eliminar la primera empresa de TI del array
-21. Eliminar la empresa o empresas intermedias de TI del array
-22. Elimine la última empresa de TI del array
-23. Eliminar todas las empresas de TI
+       const itCompanies = ["Facebook", "Google", "Microsoft", "Apple", "IBM","Oracle","Amazon"]
+        const arrayGuarda = []
+
+        for (const company of itCompanies){
+          let count = 0;
+          for(const char of company.toLowerCase()){
+           if (char === 'o'){
+           count ++;
+
+           }
+        }
+        if (coun > 1){
+          arrayGuarda.push(itCompanies);
+        }
+        }
+      
+  15. Ordene el array usando el método _sort()_
+          const itCompanies = ["Facebook", "Google", "Microsoft", "Apple", "IBM","Oracle","Amazon"]
+            itCompanies.sort();
+            console.log(itCompanies)
+  16. Invierte la array usando el método _reverse()_
+        const itCompanies = ["Facebook", "Google", "Microsoft", "Apple", "IBM","Oracle","Amazon"]
+        itCompanies.reverse();
+        console.log(itCompanies);
+  17. Cortar las primeras 3 empresas del array
+        const itCompanies = ["Facebook", "Google", "Microsoft", "Apple", "IBM","Oracle","Amazon"]
+        console.log(itCompanies.slice(0,3))
+
+  18. Cortar las últimas 3 empresas del array
+          const itCompanies = ["Facebook", "Google", "Microsoft", "Apple", "IBM","Oracle","Amazon"]
+          console.log(itCompanies.slice(-3))
+
+  19. Cortar la empresa o empresas intermedias de TI del array
+    const itCompanies = ["Facebook", "Google", "Microsoft", "Apple", "IBM","Oracle","Amazon"]
+console.log(itCompanies.slice(Math.floor(itCompanies.length / 2), Math.floor(itCompanies.length / 2) + 1)); 
+
+  20. Eliminar la primera empresa de TI del array
+    const itCompanies = ["Facebook", "Google", "Microsoft", "Apple", "IBM","Oracle","Amazon"]
+          itCompanies.shift();
+          console.log(itCompanies)
+
+  21. Eliminar la empresa o empresas intermedias de TI del array
+        const itCompanies = ["Facebook", "Google", "Microsoft", "Apple", "IBM","Oracle","Amazon"]
+          itCompanies.splice(2,2)
+          console.log(itCompanies)
+
+  22. Elimine la última empresa de TI del array
+    const itCompanies = ["Facebook", "Google", "Microsoft", "Apple", "IBM","Oracle","Amazon"]
+          itCompanies.pop()
+          console.log(itCompanies)
+  23. Eliminar todas las empresas de TI
+      const itCompanies = ["Facebook", "Google", "Microsoft", "Apple", "IBM","Oracle","Amazon"]
+          itCompanies.splice()
+          console.log(itCompanies)
 
 ### Ejercicios: Nivel 2
 
-1. Cree un archivo de countries.js separado y almacene el array de países en este archivo, cree un archivo separado web_techs.js y almacene el array de webTechs en este archivo. Acceda a ambos archivos en el archivo main.js
+1. Cree un archivo de countries.js separado y almacene el array de países en este archivo, cree un archivo separado web_techs.js y almacene el array de webTechs en este archivo. Acceda a ambos archivos en el archivo main.js LISTO/READY
+
 1. Primero elimine todos los signos de puntuación y cambie de string a array y cuente el número de palabras en el array
 
    ```js
@@ -729,6 +826,10 @@ const webTechs = [
    ["I", "love", "teaching", "and", "empowering", "people", "I", "teach", "HTML", "CSS", "JS", "React", "Python"]
 
    13
+
+    const array = text.split(" , ");
+    console.log(array);
+
    ```
 
 1. En el siguiente carrito de compras agregue, elimine, edite artículos
@@ -738,18 +839,66 @@ const webTechs = [
    ```
 
    - Agregue 'Meat' al comienzo de su carrito de compras si aún no se ha agregado
+   shoppingCart.unShift("Meat");
+   console.log(shoppingCart);
+
    - Agregue 'Sugar' al final de su carrito de compras si aún no se ha agregado
+    shoppingCart.push('Sugar');
+    console.log(shoppingCart);
+
    - Elimine 'Honey' si es alérgico a la miel (honey)
+    shoppingCart.pop()
+       console.log(shoppingCart);
+
    - Modificar Tea a 'Green Tea'
+     shoppingCart[Tea]= "Green Tea"
+      console.log(shoppingCart);
+
 
 1. En el array de países, verifique si 'Ethiopia' existe en el array si existe, imprima 'ETHIOPIA'. Si no existe agregar a la lista de países.
+const countries = [ "Albania","Bolivia","Canada","Denmark","Ethiopia","Finland","Germany","Hungary","Ireland","Japan","Kenya"];
+
+  const esta = countries.indexOf('Ethiopia');
+  if (esta === -1){
+    countries.push('Ethiopia')
+  }else{
+    console.log('ETHIOPIA')
+  }
+
 1. En el array webTechs, verifique si Sass existe en el array y si existe, imprima 'Sass es un preproceso de CSS'. Si no existe, agregue Sass al array e imprima el array.
+  const webTechs = ["HTML","CSS","JavaScript","React","Redux","Node","MongoDB",];
+  const esta = webTechs.indexOf('Sass')
+
+  if(esta === -1){
+    webTechs.push('Sass')
+    console.log(webTechs)
+  }else{
+    console.log('Sass es un preproceso de CSS')
+  }
+
+  ``
+  OTRA OPCION CON INCLUDES
+  if (!webTechs.includes('Sass')) {
+    webTechs.push('Sass');
+    console.log(webTechs);
+} else {
+    console.log('Sass es un preproceso de CSS');
+}
+
+!webTechs.includes('Sass') invierte el valor booleano devuelto por includes('Sass'). Esto quiere decir que:
+Si 'Sass' está en el array (lo que haría que includes() devuelva true), entonces !true será false.
+Si 'Sass' no está en el array (lo que haría que includes() devuelva false), entonces !false será true.
+En otras palabras:
+
+Cuando 'Sass' NO está en el array, la condición if será verdadera, y el código dentro del bloque if se ejecutará, agregando 'Sass' al array.
+Cuando 'Sass' ESTÁ en el array, la negación ! convierte true a false, y el bloque else se ejecuta, mostrando el mensaje 'Sass es un preproceso de CSS'.
+``
 1. Concatene las siguientes dos variables y guardelas en una variable fullStack.
 
    ```js
    const frontEnd = ["HTML", "CSS", "JS", "React", "Redux"];
    const backEnd = ["Node", "Express", "MongoDB"];
-
+    const fullStack = [frontEnd, backEnd]
    console.log(fullStack);
    ```
 
@@ -766,10 +915,77 @@ const webTechs = [
         ```
 
         - Ordene el array y encuentre la edad mínima y máxima
+          const ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24]
+          ages.sort((a,b) => a - b );
+
+        //  Función de comparación (a, b):
+          <!-- Si devuelve un número negativo, a debe venir antes que b.
+          Si devuelve 0, a y b se consideran iguales.
+          Si devuelve un número positivo, a debe venir después que b. -->
+
+          const minAge = ages [0];
+          const maxAge = ages [ages.length - 1];
+
+          console.log(`La edad minima es ${minAge}`)
+          console.log(`La edad maxima es ${maxAge}`)
+
         - Encuentre la edad media (un elemento intermedio o dos elementos intermedios divididos por dos)
+          const ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24]
+
+          ages.sort((a,b) => a - b )
+          const tamano = ages.length;
+
+            let mediaArray;
+            if(tamano % 2 === 0 ){
+              mediaArray = (ages[tamano /2 -1] + ages [tamano /2]) /2;
+             } else{
+                mediaArray = ages[Math.floor(tamano /2)];
+              
+            }
+
+          console.log(` la media es ${mediaArray}`)
+         
+
         - Encuentre la edad promedio (todos los elementos divididos por el número de elementos)
+      ```js
+        const ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24]
+      ```
+      function getAverageAges(arr) {
+         return arr.reduce((suma, edad) => suma + edad, 0); // Suma de todos los elementos
+      }
+        const tamano = ages.length
+        const  promedio = getAverageAges(ages) / tamano 
+        aler (`el promedio de las edades es ${promedio})
+
         - Encuentre el rango de las edades (max menos min)
+            const ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24]
+            ages.sort((a,b) => a - b)
+              const minAge = ages [0];
+              const maxAge = ages [ages.length -1]
+
+            const rango = maxAge - minAge;
+            console.log(`el rango de las edades es ${rango}`)
+
+
         - Compare el valor de (mín - promedio) y (máx - promedio), use el método _abs()_
+                  const ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24]
+
+                 ages.sort((a,b) => a-b)
+
+                const minAge = ages [0]
+                const maxAge = ages [ages.length - 1]
+
+                const promedio = ages.reduce((a,b) => a + b, 0)/ ages.length;
+
+              const diffMin = Math.abs(minAge - promedio)
+               const diffMax = Math.abs(maxAge - promedio)
+
+               console.log (`Esta es la edad minima ${minAge}`)
+               console.log(`Esta es la edad maxima ${maxAge}`)
+               console.log(`promedio ${promedio}`)
+               console.log(`Valor minimo del promedio ${diffMin}`)
+                console.log(`Valor maximo del promedio ${diffMax}`)
+
 
     1.Cortar los diez primeros países de la [array de países](https://github.com/Asabeneh/30DaysOfJavaScript/tree/master/data/countries.js)
 
