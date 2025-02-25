@@ -299,7 +299,7 @@ Map(0) {}
 
 ```js
 countries = [
-  ["Finland", "Helsinki"],
+  ["Finland", "Helsinki"], 
   ["Sweden", "Stockholm"],
   ["Norway", "Oslo"],
 ];
@@ -391,18 +391,50 @@ const countries = ["Finland", "Sweden", "Norway"];
 ```
 
 1. crear un set vacío
+  const setVacio = new Set();
 2. Crear un set que contenga de 0 a 10 utilizando el bucle
+
+    const numbers = new Set();
+    for(let i= 0; 0 <= 10; i++){
+      numbers.add(i)
+    }
 3. Eliminar un elemento de set
+  console.log(numbers.delete(1));
+
 4. Limpia set
+  numbers.clear();
 5. Crear un set de 5 elementos string a partir de un array
+
+    const elementos = ["Hola","Cara","De","Cola","Jedionda"];
+    const setOfElements = new Set(elementos)
+    console.log(setOfElements);
+
 6. Crear un map de países y el número de caracteres de un país
 
+    const map = new Map();
+    for(const pais of countries){
+      map.set( pais, pais.length)
+    }
+    console.log(map)
 ### Ejercicios:Nivel 2
 
 1. Encontrar a unión b
+const c = [...a,...b]
+  let A = new Set (a)
+  let B = new Set (b)
+  let C = new set (c)
+
 2. Encontrar a intersección b
+let A = new Set (a);
+let B = new Set (b);
+let c = a.filter(num => B.has(num))
+let C = new Set (c);
 3. Encontrar a con b
 
+  let A = new Set(a);
+  let B = new Set(b);
+  let c = a.filter(num => !B.has(num))
+  let C = new Set(c);
 ### Ejercicios:Nivel 3
 
 1. Cuántos idiomas hay en el archivo de objetos de países.
@@ -430,6 +462,29 @@ console.log(mostSpokenLanguages(countries, 3))[
   ({ English: 91 }, { French: 45 }, { Arabic: 25 })
 ];
 ```
+function mostSpokenLanguages (countries, n){
+  const languageCount = {};
+
+  for(const country of countries){
+    for (const language of country.languages){
+      if(languageCount[language]){
+        laguageCount[language]++;
+      }else{
+        languageCount[language] = 1;
+      }
+    }
+  }
+
+  const languge  Object.entries(languageCount);
+  
+  languageArray.sort((a,b) => b[1] - a[1]);
+
+  const topLanguages = languageArray.slice(0,n);
+  const result = topoLanguages.map(([language,count]) =>({
+    [language]:count,
+  }))
+  return result;
+}
 
 🎉 ¡Felicitaciones! 🎉
 
